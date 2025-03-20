@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RashikDev | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --primary-color: #ff4a57; 
+        --dark-bg:  #1F2235; 
+        --text-light: #ffffff;
+        --text-muted: #b0b0b0;
+        --section-padding: 100px 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+        overflow-x: hidden;
+      }
+
+      section {
+        padding: var(--section-padding);
+      }
+
+      .navbar {
+        padding: 20px 0;
+        background-color: var(--dark-bg);
+      }
+
+      .navbar-brand {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary-color) !important;
+      }
+
+      .nav-link {
+        color: var(--text-light) !important;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-color) !important;
+      }
+
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .welcome-text {
+        color: var(--primary-color);
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 20px;
+      }
+
+      .social-icons a {
+        color: var(--primary-color);
+        font-size: 24px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .social-icons a:hover {
+            color: #ffffff;
+            transform: scale(1.2);
+            transition: all 0.2ms ease;
+      }
+
+      .section-title {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 50px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary-color);
+      }
+
+      .about-img {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .about-text {
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .skill-item {
+        margin-bottom: 25px;
+      }
+
+      .skill-name {
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .progress {
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .progress-bar {
+        background-color: var(--primary-color);
+      }
+
+      .project-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .project-img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .project-card .card-body {
+        padding: 25px;
+      }
+
+      .project-card .card-title {
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .project-card .card-text {
+        color: var(--text-muted);
+        margin-bottom: 20px;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        padding: 10px 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: transparent;
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline-primary {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        padding: 10px 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .blog-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .blog-img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .blog-card .card-body {
+        padding: 25px;
+      }
+
+      .blog-date {
+        color: var(--primary-color);
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .blog-card .card-title {
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .blog-card .card-text {
+        color: var(--text-muted);
+        margin-bottom: 20px;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        color: var(--primary-color);
+        font-size: 20px;
+      }
+
+      .contact-details h5 {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .contact-details p {
+        color: var(--text-muted);
+      }
+
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+        padding: 12px 15px;
+        margin-bottom: 20px;
+      }
+
+      .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.07);
+        border-color: var(--primary-color);
+        color: var(--text-light);
+        box-shadow: none;
+      }
+
+      input.form-control, textarea.form-control {
+         border-color: #FF5733;
+         background-color: #1F2235; 
+         color: #F4F4F4; 
+         font-size: 15px; 
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        
+      }
+      input.form-control::placeholder, textarea.form-control::placeholder {
+        color: #fff; 
+        
+        }
+
+      footer {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      .footer-text {
+        color: var(--text-muted);
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+        opacity: 0;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+      }
+
+      @media (max-width: 991px) {
+        .hero-img {
+          margin-top: 50px;
+        }
+
+        .navbar-collapse {
+          background-color: var(--dark-bg);
+          padding: 20px;
+          border-radius: 5px;
+        }
+
+        .nav-link {
+          margin-left: 0;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">RashikDev</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">PROJECTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">BLOG</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="welcome-text">WELCOME!</div>
+            <h1 class="hero-title">Hi, I am Rashik Timalsina</h1>
+            <p class="hero-subtitle">
+              I am a Java Developer with expertise in building web applications
+              and APIs. Passionate about clean code and scalable systems.
+            </p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/profile.php?id=100077081917937" target="blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://github.com/RashikTimalsina" target="blank"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/rashik-timalsina-2757482a5/" target="blank"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/rashik_timalsinaa/" target="blank"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img
+              src="images/mypp.png"
+              alt="Rashik Timalsina"
+              class="img-fluid hero-img"
+              style="max-height: 500px"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="about-img">
+              <img
+                src="images/aboutpp.png"
+                alt="Rashik Timalsina"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <p class="about-text">
+              Hello! I'm Rashik, a passionate Java Developer based in Nepal with
+              a strong foundation in building robust web applications and APIs.
+            </p>
+            <p class="about-text">
+              With over 3 years of experience in software development, I
+              specialize in creating clean, efficient, and scalable solutions
+              that solve real-world problems. My approach to development focuses
+              on writing.
+            </p>
+              <div class="row mt-4">
+              <div class="col-md-6">
+                <p><strong>Name:</strong> Rashik Timalsina</p> 
+                <p><strong>Email:</strong> @gmail.com</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Location:</strong> Kathmandu, Nepal</p>
+                <p><strong>Available:</strong> For Freelance & Full-time</p>
+              </div>
+            </div>
+
+            <div class="skills mt-4">
+              <h3 class="mb-3">My Skills</h3>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>Java</span>
+                  <span>95%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 95%"
+                    aria-valuenow="95"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>Spring Boot</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 90%"
+                    aria-valuenow="90"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>HTML/CSS/JavaScript</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 85%"
+                    aria-valuenow="85"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a href="assets/Resume@RT.pdf" class="btn btn-primary me-3">Download CV</a>
+              <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="project-card">
+              <img
+                src="images/stma.png"
+                alt="Project 1"
+                class="project-img img-fluid w-100"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Student Task Manager App</h5>
+                <p class="card-text">
+                  A complete task management system built with Java
+                  and MySql for students to organize their tasks efficiently.
+
+.
+                </p>
+                <div class="d-flex">
+                  <a href="https://github.com/RashikTimalsina/Student_Task_Manager_App" target="blank" class="btn btn-primary me-2">View Project</a>
+                  <a href="https://github.com/RashikTimalsina" target="blank" class="btn btn-outline-primary"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project-card">
+              <img
+                src="images/hms.png"
+                alt="Project 2"
+                class="project-img img-fluid w-100"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hotel Management System</h5>
+                <p class="card-text">
+                  A secure and robust API system built with Java and Swing that manages customer check-ins, room bookings, billing, and availability.
+                </p>
+                <div class="d-flex">
+                  <a href="https://github.com/RashikTimalsina/Hotel-Management-System" target="blank" class="btn btn-primary me-2">View Project</a>
+                  <a href="https://github.com/RashikTimalsina" target="blank" class="btn btn-outline-primary"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project-card">
+              <img
+                src="images/regit.png"
+                alt="Project 3"
+                class="project-img img-fluid w-100"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Registration System </h5>
+                <p class="card-text">
+                    A desktop-based registration system built using Java Swing in NetBeans IDE featuring users to register, store, and manage user data efficiently. 
+
+                </p>
+                <div class="d-flex">
+                  <a href="https://github.com/RashikTimalsina/Registration-System" target="blank" class="btn btn-primary me-2">View Project</a>
+                  <a href="https://github.com/RashikTimalsina" target="blank" class="btn btn-outline-primary"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="https://github.com/RashikTimalsina"  target="blank" class="btn btn-outline-primary">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="container">
+        <h2 class="section-title">Latest Articles</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img
+                src="images/blog1.png"
+                alt="Blog Post 1"
+                class="blog-img img-fluid w-100"
+              />
+              <div class="card-body">
+                <div class="blog-date">March 15, 2025</div>
+                <h5 class="card-title">Building Scalable Java Applications</h5>
+                <p class="card-text">
+                  Learn the best practices for building Java applications that
+                  can scale to handle millions of users.
+                </p>
+                <a href="https://metadesignsolutions.com/building-scalable-rest-apis-in-java-using-jax-rs-and-spring-boot/" class="btn btn-primary" target="_blank">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img
+                src="images/blog2.png"
+                alt="Blog Post 2"
+                class="blog-img img-fluid w-100"
+              />
+              <div class="card-body">
+                <div class="blog-date">March 10, 2025</div>
+                <h5 class="card-title">Microservices with Spring Boot</h5>
+                <p class="card-text">
+                  A comprehensive guide to designing and implementing
+                  microservices architecture using Spring Boot.
+                </p>
+                <a href="https://www.javaguides.net/2025/02/microservices-best-practices.html" class="btn btn-primary" target="_blank">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img
+                src="images/blog3.png"
+                alt="Blog Post 3"
+                class="blog-img img-fluid w-100"
+              />
+              <div class="card-body">
+                <div class="blog-date">March 5, 2025</div>
+                <h5 class="card-title">Securing REST APIs</h5>
+                <p class="card-text">
+                  Essential security practices for protecting your REST APIs
+                  from common vulnerabilities and attacks.
+                </p>
+                <a href="https://www.springfuse.com/secure-rest-apis-with-spring-security/ " target="_blank" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="https://dev.to/" target="_blank" class="btn btn-outline-primary">View All Articles</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="contact-info">
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>Location</h5>
+                  <p>Kathmandu, Nepal</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>Email</h5>
+                  <p>rashiktimalsina505@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>Phone</h5>
+                  <p>+977 9847394952</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>Working Hours</h5>
+                  <p>Monday - Friday: 9am - 5pm</p>
+                </div>
+              </div>
+            </div>
+            <div class="social-icons mt-4">
+              <a href="https://www.facebook.com/profile.php?id=100077081917937" target="blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://github.com/RashikTimalsina" target="_blank"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/rashik-timalsina-2757482a5/" target="_blank"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/rashik_timalsinaa/" target="blank"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Subject"
+                required
+              />
+              <textarea
+                class="form-control"
+                placeholder="Your Message"
+                required
+              ></textarea>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p class="footer-text">&copy; 2025 RashikDev. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.style.backgroundColor = "rgba(30, 33, 58, 0.95)";
+          navbar.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
+        } else {
+          navbar.style.backgroundColor = "var(--dark-bg)";
+          navbar.style.boxShadow = "none";
+        }
+
+        // Back to top button
+        const backToTop = document.getElementById("backToTop");
+        if (window.scrollY > 300) {
+          backToTop.classList.add("show");
+        } else {
+          backToTop.classList.remove("show");
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 50,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+            if (navbarCollapse.classList.contains("show")) {
+              navbarCollapse.classList.remove("show");
+            }
+
+            // Update active nav link
+            document.querySelectorAll(".nav-link").forEach((link) => {
+              link.classList.remove("active");
+            });
+            this.classList.add("active");
+          }
+        });
+      });
+
+      // Active nav link on scroll
+      window.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
